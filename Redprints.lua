@@ -5,6 +5,15 @@
 
 local _G = _G
 local GetBuildingInfo = _G.C_Garrison.GetBuildingInfo
+local GetMerchantItemLink = _G.GetMerchantItemLink
+local GetMerchantNumItems = _G.GetMerchantNumItems
+local MerchantFrame = _G.MerchantFrame
+local MERCHANT_ITEMS_PER_PAGE = _G.MERCHANT_ITEMS_PER_PAGE
+local SetItemButtonNameFrameVertexColor = _G.SetItemButtonNameFrameVertexColor
+local SetItemButtonNormalTextureVertexColor = _G.SetItemButtonNormalTextureVertexColor
+local SetItemButtonSlotVertexColor = _G.SetItemButtonSlotVertexColor
+local SetItemButtonTextureVertexColor = _G.SetItemButtonTextureVertexColor
+local tonumber = _G.tonumber
 
 
 --<< ================================================= >>--
@@ -168,7 +177,7 @@ local function PaintItRed()
 
 		if buildingID then
 			-- id, name, texPrefix, icon, description, _, currencyID, currencyQty, goldQty, buildTime, needsPlan
-			local _, _, _, _, _, _, _, _, _, _, needsPlan = C_Garrison.GetBuildingInfo(buildingID)
+			local _, _, _, _, _, _, _, _, _, _, needsPlan = GetBuildingInfo(buildingID)
 
 			if not needsPlan then
 				SetItemButtonNameFrameVertexColor(merchantButton, 0, 1, 0)
