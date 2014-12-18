@@ -171,19 +171,20 @@ local function PaintItRed()
 		if not itemButton or not merchantButton then break end
 
 		local itemLink = GetMerchantItemLink(index)
-		local blueprint = tonumber( itemLink:match("item:(%d+)") )
+		
+		if itemLink then
+			local blueprint = tonumber( itemLink:match("item:(%d+)") )
+			local buildingID = blueprintToBuilding[blueprint]
 
-		local buildingID = blueprintToBuilding[blueprint]
+			if buildingID then
+				local _, _, _, _, _, _, _, _, _, _, needsPlan = GetBuildingInfo(buildingID)
 
-		if buildingID then
-			-- id, name, texPrefix, icon, description, _, currencyID, currencyQty, goldQty, buildTime, needsPlan
-			local _, _, _, _, _, _, _, _, _, _, needsPlan = GetBuildingInfo(buildingID)
-
-			if not needsPlan then
-				SetItemButtonNameFrameVertexColor(merchantButton, 1, 0, 0)
-				SetItemButtonSlotVertexColor(merchantButton, 1, 0, 0)
-				SetItemButtonTextureVertexColor(itemButton, 1, 0, 0)
-				SetItemButtonNormalTextureVertexColor(itemButton, 1, 0, 0)
+				if not needsPlan then
+					SetItemButtonNameFrameVertexColor(merchantButton, 1, 0, 0)
+					SetItemButtonSlotVertexColor(merchantButton, 1, 0, 0)
+					SetItemButtonTextureVertexColor(itemButton, 1, 0, 0)
+					SetItemButtonNormalTextureVertexColor(itemButton, 1, 0, 0)
+				end
 			end
 		end
 	end
