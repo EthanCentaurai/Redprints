@@ -1,0 +1,7 @@
+## Interface: 60000
+## Title: Redprints
+## Notes: Paints your known blueprints red.
+## Author: Ethan Centaurai
+## Version: @project-version@
+
+Redprints.lua
