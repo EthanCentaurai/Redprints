@@ -180,10 +180,10 @@ local function PaintItRed()
 			local _, _, _, _, _, _, _, _, _, _, needsPlan = GetBuildingInfo(buildingID)
 
 			if not needsPlan then
-				SetItemButtonNameFrameVertexColor(merchantButton, 0, 1, 0)
-				SetItemButtonSlotVertexColor(merchantButton, 0, 1, 0)
-				SetItemButtonTextureVertexColor(itemButton, 0, 1, 0)
-				SetItemButtonNormalTextureVertexColor(itemButton, 0, 1, 0)
+				SetItemButtonNameFrameVertexColor(merchantButton, 1, 0, 0)
+				SetItemButtonSlotVertexColor(merchantButton, 1, 0, 0)
+				SetItemButtonTextureVertexColor(itemButton, 1, 0, 0)
+				SetItemButtonNormalTextureVertexColor(itemButton, 1, 0, 0)
 			end
 		end
 	end
