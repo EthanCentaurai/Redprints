@@ -4,6 +4,7 @@
 --<< ================================================= >>--
 
 local _G = _G
+
 local GetBuildingInfo = _G.C_Garrison.GetBuildingInfo
 local GetMerchantItemLink = _G.GetMerchantItemLink
 local GetMerchantNumItems = _G.GetMerchantNumItems
@@ -13,7 +14,10 @@ local SetItemButtonNameFrameVertexColor = _G.SetItemButtonNameFrameVertexColor
 local SetItemButtonNormalTextureVertexColor = _G.SetItemButtonNormalTextureVertexColor
 local SetItemButtonSlotVertexColor = _G.SetItemButtonSlotVertexColor
 local SetItemButtonTextureVertexColor = _G.SetItemButtonTextureVertexColor
+
+local match = _G.string.match
 local tonumber = _G.tonumber
+local type = _G.type
 
 
 --<< ================================================= >>--
@@ -161,7 +165,7 @@ local function PaintItRed()
 	local numitems = GetMerchantNumItems()
 
 	for i=1, MERCHANT_ITEMS_PER_PAGE do
-		local index = (((MerchantFrame.page - 1) * MERCHANT_ITEMS_PER_PAGE) + i)
+		local index = ((MerchantFrame.page - 1) * MERCHANT_ITEMS_PER_PAGE) + i
 
 		if index > numitems then break end
 
@@ -171,10 +175,10 @@ local function PaintItRed()
 		if not itemButton or not merchantButton then break end
 
 		local itemLink = GetMerchantItemLink(index)
-		
-		if itemLink then
-			local blueprint = tonumber( itemLink:match("item:(%d+)") )
-			local buildingID = blueprintToBuilding[blueprint]
+
+		if type(itemLink) == "string" then
+			local itemID = match(itemLink, "item:(%d+)")
+			local buildingID = blueprintToBuilding[tonumber(itemID)]
 
 			if buildingID then
 				local _, _, _, _, _, _, _, _, _, _, needsPlan = GetBuildingInfo(buildingID)
