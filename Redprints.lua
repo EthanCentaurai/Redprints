@@ -16,6 +16,7 @@ local SetItemButtonSlotVertexColor = _G.SetItemButtonSlotVertexColor
 local SetItemButtonTextureVertexColor = _G.SetItemButtonTextureVertexColor
 
 local match = _G.string.match
+local print = _G.print
 local tonumber = _G.tonumber
 local type = _G.type
 
@@ -180,8 +181,9 @@ SlashCmdList["REDPRINT"] = function(msg, editBox)
 
 	if command == "red" or command == "green" or command == "blue" or command == "grey" then
  		RedprintsColour = command
+		print("Blueprints you have learned will now be shown in "..command)
  	else
-		DEFAULT_CHAT_FRAME:AddMessage("Syntax: /rp (red|green|blue|grey)", info.r, info.g, info.b, info.id)
+		print("Syntax: /rp (red|green|blue|grey)", info.r, info.g, info.b, info.id)
  	end
 end
 
