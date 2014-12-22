@@ -160,12 +160,14 @@ local blueprintToBuilding = {
 --<< ================================================= >>--
 
 local function GetColour()
-	if RedprintsColour == nil then RedprintsColour = "R" end
+	if RedprintsColour == nil then RedprintsColour = "red" end
 	
-	if RedprintsColour == "G" then
+	if RedprintsColour == "green" then
 		return 0, 1, 0
-	elseif RedprintsColour == "B" then
+	elseif RedprintsColour == "blue" then
 		return 0, 0, 1
+	elseif RedprintsColour == "grey" then
+		return 0.5, 0.5, 0.5
 	else
 		return 1, 0, 0
 	end
@@ -176,14 +178,10 @@ SlashCmdList["REDPRINT"] = function(msg, editBox)
 	local command, _ = msg:match("^(%S*)%s*(.-)$")
 	local info = ChatTypeInfo["SYSTEM"]
 
-	if command == "red" then
- 		RedprintsColour = "R"
- 	elseif command == "green" then
- 		RedprintsColour = "G"
- 	elseif command == "blue" then
- 		RedprintsColour = "B"
+	if command == "red" or command == "green" or command == "blue" or command == "grey" then
+ 		RedprintsColour = command
  	else
-		DEFAULT_CHAT_FRAME:AddMessage("Syntax: /rp (red|green|blue)", info.r, info.g, info.b, info.id)
+		DEFAULT_CHAT_FRAME:AddMessage("Syntax: /rp (red|green|blue|grey)", info.r, info.g, info.b, info.id)
  	end
 end
 
