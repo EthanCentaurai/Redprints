@@ -162,7 +162,7 @@ local blueprintToBuilding = {
 
 local function GetColour()
 	if RedprintsColour == nil then RedprintsColour = "red" end
-	
+
 	if RedprintsColour == "green" then
 		return 0, 1, 0
 	elseif RedprintsColour == "blue" then
@@ -180,11 +180,11 @@ SlashCmdList["REDPRINT"] = function(msg, editBox)
 	local info = ChatTypeInfo["SYSTEM"]
 
 	if command == "red" or command == "green" or command == "blue" or command == "grey" then
- 		RedprintsColour = command
+		RedprintsColour = command
 		print("Blueprints you have learned will now be shown in "..command)
- 	else
+	else
 		print("Syntax: /rp (red|green|blue|grey)", info.r, info.g, info.b, info.id)
- 	end
+	end
 end
 
 
