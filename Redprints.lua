@@ -3,6 +3,8 @@
 --     Upvalues                                          --
 --<< ================================================= >>--
 
+-- GLOBALS: RedprintsColour, SLASH_REDPRINT1, SLASH_REDPRINT2
+
 local _G = _G
 
 local GetBuildingInfo = _G.C_Garrison.GetBuildingInfo
