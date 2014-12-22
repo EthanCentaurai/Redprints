@@ -175,6 +175,7 @@ local function GetColour()
 end
 
 SLASH_REDPRINT1 = "/rp"
+SLASH_REDPRINT2 = "/redprints"
 SlashCmdList["REDPRINT"] = function(msg)
 	local command = msg:match("^(%S*)%s*(.-)$")
 
