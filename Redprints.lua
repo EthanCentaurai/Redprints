@@ -175,15 +175,14 @@ local function GetColour()
 end
 
 SLASH_REDPRINT1 = "/rp"
-SlashCmdList["REDPRINT"] = function(msg, editBox)
-	local command, _ = msg:match("^(%S*)%s*(.-)$")
-	local info = ChatTypeInfo["SYSTEM"]
+SlashCmdList["REDPRINT"] = function(msg)
+	local command = msg:match("^(%S*)%s*(.-)$")
 
 	if command == "red" or command == "green" or command == "blue" or command == "grey" then
 		RedprintsColour = command
 		print("Blueprints you have learned will now be shown in "..command)
 	else
-		print("Syntax: /rp (red|green|blue|grey)", info.r, info.g, info.b, info.id)
+		print("Syntax: /rp (red|green|blue|grey)")
 	end
 end
 
