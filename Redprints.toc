@@ -3,5 +3,6 @@
 ## Notes: Paints your known blueprints red.
 ## Author: Ethan Centaurai
 ## Version: @project-version@
+## SavedVariables: RedprintsColour
 
 Redprints.lua

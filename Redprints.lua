@@ -156,6 +156,39 @@ local blueprintToBuilding = {
 
 
 --<< ================================================= >>--
+--     Colour Options                                    --
+--<< ================================================= >>--
+
+local function GetColour()
+	if RedprintsColour == nil then RedprintsColour = "R" end
+	
+	if RedprintsColour == "G" then
+		return 0, 1, 0
+	elseif RedprintsColour == "B" then
+		return 0, 0, 1
+	else
+		return 1, 0, 0
+	end
+end
+
+SLASH_REDPRINT1 = "/rp"
+SlashCmdList["REDPRINT"] = function(msg, editBox)
+	local command, _ = msg:match("^(%S*)%s*(.-)$")
+	local info = ChatTypeInfo["SYSTEM"]
+
+	if command == "red" then
+ 		RedprintsColour = "R"
+ 	elseif command == "green" then
+ 		RedprintsColour = "G"
+ 	elseif command == "blue" then
+ 		RedprintsColour = "B"
+ 	else
+		DEFAULT_CHAT_FRAME:AddMessage("Syntax: /rp (red|green|blue)", info.r, info.g, info.b, info.id)
+ 	end
+end
+
+
+--<< ================================================= >>--
 --     The Vendor Hook                                   --
 --<< ================================================= >>--
 
@@ -184,10 +217,10 @@ local function PaintItRed()
 				local _, _, _, _, _, _, _, _, _, _, needsPlan = GetBuildingInfo(buildingID)
 
 				if not needsPlan then
-					SetItemButtonNameFrameVertexColor(merchantButton, 1, 0, 0)
-					SetItemButtonSlotVertexColor(merchantButton, 1, 0, 0)
-					SetItemButtonTextureVertexColor(itemButton, 1, 0, 0)
-					SetItemButtonNormalTextureVertexColor(itemButton, 1, 0, 0)
+					SetItemButtonNameFrameVertexColor(merchantButton, GetColour())
+					SetItemButtonSlotVertexColor(merchantButton, GetColour())
+					SetItemButtonTextureVertexColor(itemButton, GetColour())
+					SetItemButtonNormalTextureVertexColor(itemButton, GetColour())
 				end
 			end
 		end
