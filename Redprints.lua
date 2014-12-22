@@ -168,7 +168,7 @@ local function GetColour()
 	elseif RedprintsColour == "blue" then
 		return 0, 0, 1
 	elseif RedprintsColour == "grey" then
-		return 0.5, 0.5, 0.5
+		return 0.3, 0.3, 0.3
 	else
 		return 1, 0, 0
 	end
