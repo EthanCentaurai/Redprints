@@ -51,7 +51,7 @@ local blueprintToBuilding = {
 	[111975] = 132, -- Level 3
 
 	-- Salvage Yard
---	[111957] = 52,  -- Level 1
+	[111957] = 52,  -- Level 1
 	[111976] = 140, -- Level 2
 	[111977] = 141, -- Level 3
 
